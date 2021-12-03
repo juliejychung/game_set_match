@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @court.lessons.each do |lesson| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to lesson, lesson %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to lesson, method: :delete, data: { confirm: "Do you really want to delete this lesson" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="court_lessons_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "courts/court_lessons_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

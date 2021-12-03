@@ -6,41 +6,31 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Coach</dt>
-      <!-- Display coach_id start -->
       <dd>
         <% if @lesson.coach.present? %>
           <%= link_to lesson.coach, lesson.coach %>
         <% end %>
       </dd>
-      <!-- Display coach_id end -->
 
       <dt>Player</dt>
-      <!-- Display player_id start -->
       <dd>
         <% if @lesson.player.present? %>
           <%= link_to lesson.player, lesson.player %>
         <% end %>
       </dd>
-      <!-- Display player_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= lesson.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= lesson.time %></dd>
-      <!-- Display time end -->
 
       <dt>Court</dt>
-      <!-- Display court_id start -->
       <dd>
         <% if @lesson.court.present? %>
           <%= link_to lesson.court, lesson.court %>
         <% end %>
       </dd>
-      <!-- Display court_id end -->
 
     </dl>
 
@@ -49,21 +39,17 @@
         <%= link_to_show_or_back lesson, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link lesson start -->
       <div class="col">
         <%= link_to edit_lesson_url(lesson), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link lesson end -->
 
-      <!-- Delete link lesson start -->
       <div class="col">
         <%= link_to lesson, method: :delete, data: { confirm: "Do you really want to delete this lesson?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link lesson end -->
     </div>
   </div>
 

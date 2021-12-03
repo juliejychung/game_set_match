@@ -6,41 +6,31 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Player</dt>
-      <!-- Display player_id start -->
       <dd>
         <% if @match.player.present? %>
           <%= link_to match.player, match.player %>
         <% end %>
       </dd>
-      <!-- Display player_id end -->
 
       <dt>Opponent</dt>
-      <!-- Display opponent_id start -->
       <dd>
         <% if @match.opponent.present? %>
           <%= link_to match.opponent, match.opponent %>
         <% end %>
       </dd>
-      <!-- Display opponent_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= match.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= match.time %></dd>
-      <!-- Display time end -->
 
       <dt>Court</dt>
-      <!-- Display court_id start -->
       <dd>
         <% if @match.court.present? %>
           <%= link_to match.court, match.court %>
         <% end %>
       </dd>
-      <!-- Display court_id end -->
 
     </dl>
 
@@ -49,21 +39,17 @@
         <%= link_to_show_or_back match, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link match start -->
       <div class="col">
         <%= link_to edit_match_url(match), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link match end -->
 
-      <!-- Delete link match start -->
       <div class="col">
         <%= link_to match, method: :delete, data: { confirm: "Do you really want to delete this match?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link match end -->
     </div>
   </div>
 
