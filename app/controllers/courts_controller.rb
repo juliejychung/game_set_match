@@ -3,7 +3,7 @@ class CourtsController < ApplicationController
 
   # GET /courts
   def index
-    @courts = Court.all
+    @courts = Court.page(params[:page]).per(10)
   end
 
   # GET /courts/1
