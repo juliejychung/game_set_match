@@ -1,6 +1,8 @@
 class Lesson < ApplicationRecord
   # Direct associations
 
+  belongs_to :court
+
   belongs_to :player,
              :class_name => "User"
 
