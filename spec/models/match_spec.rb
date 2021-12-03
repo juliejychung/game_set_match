@@ -4,6 +4,8 @@ RSpec.describe Match, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:court) }
+
     it { should have_many(:comments) }
 
     it { should belong_to(:opponent) }
