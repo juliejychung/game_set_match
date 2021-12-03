@@ -12,12 +12,20 @@
 
       <dt>Commenter</dt>
       <!-- Display commenter_id start -->
-      <dd><%= comment.commenter_id %></dd>
+      <dd>
+        <% if @comment.commenter.present? %>
+          <%= link_to comment.commenter, comment.commenter %>
+        <% end %>
+      </dd>
       <!-- Display commenter_id end -->
 
       <dt>Match</dt>
       <!-- Display match_id start -->
-      <dd><%= comment.match_id %></dd>
+      <dd>
+        <% if @comment.match.present? %>
+          <%= link_to comment.match, comment.match %>
+        <% end %>
+      </dd>
       <!-- Display match_id end -->
 
     </dl>

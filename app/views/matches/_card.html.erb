@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Player</dt>
       <!-- Display player_id start -->
-      <dd><%= match.player_id %></dd>
+      <dd>
+        <% if @match.player.present? %>
+          <%= link_to match.player, match.player %>
+        <% end %>
+      </dd>
       <!-- Display player_id end -->
 
       <dt>Opponent</dt>
       <!-- Display opponent_id start -->
-      <dd><%= match.opponent_id %></dd>
+      <dd>
+        <% if @match.opponent.present? %>
+          <%= link_to match.opponent, match.opponent %>
+        <% end %>
+      </dd>
       <!-- Display opponent_id end -->
 
       <dt>Date</dt>
@@ -27,7 +35,11 @@
 
       <dt>Court</dt>
       <!-- Display court_id start -->
-      <dd><%= match.court_id %></dd>
+      <dd>
+        <% if @match.court.present? %>
+          <%= link_to match.court, match.court %>
+        <% end %>
+      </dd>
       <!-- Display court_id end -->
 
     </dl>
