@@ -18,6 +18,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :lessons,
+             foreign_key: :coach_id
+
   has_many   :comments,
              foreign_key: :commenter_id
 

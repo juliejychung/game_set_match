@@ -10,6 +10,9 @@ class LessonResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :coach,
+             resource: UserResource
+
   # Indirect associations
 
 end
