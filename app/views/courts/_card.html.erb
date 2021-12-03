@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Court #<%= court.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>State</dt>
+      <!-- Display state start -->
+      <dd><%= court.state %></dd>
+      <!-- Display state end -->
+
+      <dt>City</dt>
+      <!-- Display city start -->
+      <dd><%= court.city %></dd>
+      <!-- Display city end -->
+
+      <dt>Neighborhood</dt>
+      <!-- Display neighborhood start -->
+      <dd><%= court.neighborhood %></dd>
+      <!-- Display neighborhood end -->
+
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= court.name %></dd>
+      <!-- Display name end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back court, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link court start -->
+      <div class="col">
+        <%= link_to edit_court_url(court), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link court end -->
+
+      <!-- Delete link court start -->
+      <div class="col">
+        <%= link_to court, method: :delete, data: { confirm: "Do you really want to delete this court?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link court end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(court.updated_at) %> ago
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<% was_validated = court.errors.any? %>
+
+<%= form_with(model: court, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for state start -->
+  <div class="form-group">
+    <% state_class = "form-control" %>
+    <% state_was_invalid = court.errors.include?(:state) %>
+
+    <% if was_validated %>
+      <% if state_was_invalid %>
+        <% state_class << " is-invalid" %>
+      <% else %>
+        <% state_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :state %>
+    <!-- Input for state start -->
+    <%= f.text_field :state, class: state_class, placeholder: "Enter state" %>
+    <!-- Input for state end -->
+    <% if state_was_invalid %>
+      <% court.errors.full_messages_for(:state).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for state end -->
+  <!-- Label and input for city start -->
+  <div class="form-group">
+    <% city_class = "form-control" %>
+    <% city_was_invalid = court.errors.include?(:city) %>
+
+    <% if was_validated %>
+      <% if city_was_invalid %>
+        <% city_class << " is-invalid" %>
+      <% else %>
+        <% city_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :city %>
+    <!-- Input for city start -->
+    <%= f.text_field :city, class: city_class, placeholder: "Enter city" %>
+    <!-- Input for city end -->
+    <% if city_was_invalid %>
+      <% court.errors.full_messages_for(:city).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for city end -->
+  <!-- Label and input for neighborhood start -->
+  <div class="form-group">
+    <% neighborhood_class = "form-control" %>
+    <% neighborhood_was_invalid = court.errors.include?(:neighborhood) %>
+
+    <% if was_validated %>
+      <% if neighborhood_was_invalid %>
+        <% neighborhood_class << " is-invalid" %>
+      <% else %>
+        <% neighborhood_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :neighborhood %>
+    <!-- Input for neighborhood start -->
+    <%= f.text_field :neighborhood, class: neighborhood_class, placeholder: "Enter neighborhood" %>
+    <!-- Input for neighborhood end -->
+    <% if neighborhood_was_invalid %>
+      <% court.errors.full_messages_for(:neighborhood).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for neighborhood end -->
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = court.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% court.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
