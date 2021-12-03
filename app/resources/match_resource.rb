@@ -10,6 +10,9 @@ class MatchResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :player,
+             resource: UserResource
+
   # Indirect associations
 
 end

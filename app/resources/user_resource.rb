@@ -18,6 +18,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :matches,
+             foreign_key: :player_id
+
   # Indirect associations
 
 end
