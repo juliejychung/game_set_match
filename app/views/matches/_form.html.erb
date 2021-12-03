@@ -42,7 +42,7 @@
 
     <%= f.label :opponent_id %>
     <!-- Input for opponent_id start -->
-    <%= f.number_field :opponent_id, class: opponent_class, placeholder: "Enter opponent" %>
+    <%= f.collection_select :opponent_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for opponent_id end -->
     <% if opponent_was_invalid %>
       <% match.errors.full_messages_for(:opponent).each do |message| %>

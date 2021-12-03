@@ -17,7 +17,7 @@
     <%= f.label :opponent_id %>
 
     <!-- Input for opponent_id start -->
-    <%= f.text_field :opponent_id, class: "form-control" %>
+    <%= f.collection_select :opponent_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for opponent_id end -->
   </div>
   <!-- Label and input for opponent_id end -->
