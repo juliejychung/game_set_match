@@ -8,6 +8,8 @@ class CommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :match
+
   belongs_to :commenter,
              resource: UserResource
 

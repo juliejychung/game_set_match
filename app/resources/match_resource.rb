@@ -10,6 +10,8 @@ class MatchResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   belongs_to :opponent,
              resource: UserResource
 
