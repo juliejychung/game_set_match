@@ -276,7 +276,7 @@
 
     <%= f.label :profile_picture %>
     <!-- Input for profile_picture start -->
-    <%= f.text_field :profile_picture, class: profile_picture_class, placeholder: "Enter profile picture" %>
+    <%= f.file_field :profile_picture, class: "form-control" %>
     <!-- Input for profile_picture end -->
     <% if profile_picture_was_invalid %>
       <% user.errors.full_messages_for(:profile_picture).each do |message| %>
