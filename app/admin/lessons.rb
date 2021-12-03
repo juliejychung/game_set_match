@@ -1,5 +1,7 @@
 ActiveAdmin.register Lesson do
 
+ permit_params :coach_id, :player_id, :date, :time, :court_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
