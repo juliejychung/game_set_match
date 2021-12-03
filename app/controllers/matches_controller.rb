@@ -1,10 +1,11 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match, only: %i[show edit update destroy]
 
   # GET /matches
   def index
     @q = Match.ransack(params[:q])
-    @matches = @q.result(:distinct => true).includes(:player, :opponent, :comments, :court).page(params[:page]).per(10)
+    @matches = @q.result(distinct: true).includes(:player, :opponent,
+                                                  :comments, :court).page(params[:page]).per(10)
   end
 
   # GET /matches/1
@@ -18,17 +19,16 @@ class MatchesController < ApplicationController
   end
 
   # GET /matches/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /matches
   def create
     @match = Match.new(match_params)
 
     if @match.save
-      message = 'Match was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Match was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @match, notice: message
       end
@@ -40,7 +40,7 @@ class MatchesController < ApplicationController
   # PATCH/PUT /matches/1
   def update
     if @match.update(match_params)
-      redirect_to @match, notice: 'Match was successfully updated.'
+      redirect_to @match, notice: "Match was successfully updated."
     else
       render :edit
     end
@@ -50,22 +50,23 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     message = "Match was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to matches_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_match
-      @match = Match.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def match_params
-      params.require(:match).permit(:player_id, :opponent_id, :date, :time, :court_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_match
+    @match = Match.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def match_params
+    params.require(:match).permit(:player_id, :opponent_id, :date, :time,
+                                  :court_id)
+  end
 end

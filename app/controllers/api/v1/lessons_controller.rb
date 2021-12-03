@@ -13,7 +13,7 @@ class Api::V1::LessonsController < Api::V1::GraphitiController
     lesson = LessonResource.build(params)
 
     if lesson.save
-      render jsonapi: lesson, status: 201
+      render jsonapi: lesson, status: :created
     else
       render jsonapi_errors: lesson
     end
@@ -33,7 +33,7 @@ class Api::V1::LessonsController < Api::V1::GraphitiController
     lesson = LessonResource.find(params)
 
     if lesson.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: lesson
     end

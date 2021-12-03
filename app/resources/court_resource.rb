@@ -14,5 +14,4 @@ class CourtResource < ApplicationResource
   has_many   :matches
 
   # Indirect associations
-
 end

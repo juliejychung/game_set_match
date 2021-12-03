@@ -2,10 +2,10 @@ class Court < ApplicationRecord
   # Direct associations
 
   has_many   :lessons,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :matches,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Court < ApplicationRecord
   def to_s
     state
   end
-
 end

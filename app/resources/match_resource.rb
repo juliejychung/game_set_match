@@ -21,5 +21,4 @@ class MatchResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

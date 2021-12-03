@@ -19,5 +19,4 @@ class LessonResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

@@ -36,5 +36,4 @@ class UserResource < ApplicationResource
              foreign_key: :player_id
 
   # Indirect associations
-
 end

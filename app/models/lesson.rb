@@ -4,10 +4,10 @@ class Lesson < ApplicationRecord
   belongs_to :court
 
   belongs_to :player,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :coach,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class Lesson < ApplicationRecord
   def to_s
     coach.to_s
   end
-
 end

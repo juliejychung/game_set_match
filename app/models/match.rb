@@ -4,13 +4,13 @@ class Match < ApplicationRecord
   belongs_to :court
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :opponent,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :player,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -21,5 +21,4 @@ class Match < ApplicationRecord
   def to_s
     player.to_s
   end
-
 end
