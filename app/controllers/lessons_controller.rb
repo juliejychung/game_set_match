@@ -3,7 +3,8 @@ class LessonsController < ApplicationController
 
   # GET /lessons
   def index
-    @lessons = Lesson.page(params[:page]).per(10)
+    @q = Lesson.ransack(params[:q])
+    @lessons = @q.result(:distinct => true).includes(:coach, :player, :court).page(params[:page]).per(10)
   end
 
   # GET /lessons/1

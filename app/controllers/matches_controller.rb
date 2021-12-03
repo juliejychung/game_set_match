@@ -3,7 +3,8 @@ class MatchesController < ApplicationController
 
   # GET /matches
   def index
-    @matches = Match.page(params[:page]).per(10)
+    @q = Match.ransack(params[:q])
+    @matches = @q.result(:distinct => true).includes(:player, :opponent, :comments, :court).page(params[:page]).per(10)
   end
 
   # GET /matches/1

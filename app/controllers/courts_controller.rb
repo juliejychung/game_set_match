@@ -3,7 +3,8 @@ class CourtsController < ApplicationController
 
   # GET /courts
   def index
-    @courts = Court.page(params[:page]).per(10)
+    @q = Court.ransack(params[:q])
+    @courts = @q.result(:distinct => true).includes(:matches, :lessons).page(params[:page]).per(10)
   end
 
   # GET /courts/1
