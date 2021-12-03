@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  belongs_to :match
+
   belongs_to :commenter,
              :class_name => "User"
 

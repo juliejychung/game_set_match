@@ -1,6 +1,9 @@
 class Match < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :opponent,
              :class_name => "User"
 
