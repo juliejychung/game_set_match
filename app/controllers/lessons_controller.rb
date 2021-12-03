@@ -42,8 +42,14 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   def destroy
     @lesson.destroy
-    redirect_to lessons_url, notice: 'Lesson was successfully destroyed.'
+    message = "Lesson was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to lessons_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
