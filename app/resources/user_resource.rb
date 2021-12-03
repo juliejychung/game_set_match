@@ -18,6 +18,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :sessions,
+             resource: LessonResource,
+             foreign_key: :player_id
+
   has_many   :lessons,
              foreign_key: :coach_id
 
