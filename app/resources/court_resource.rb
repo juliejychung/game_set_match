@@ -9,6 +9,8 @@ class CourtResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :matches
+
   # Indirect associations
 
 end
