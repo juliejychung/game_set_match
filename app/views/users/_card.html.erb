@@ -1,0 +1,101 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    User #<%= user.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>First name</dt>
+      <!-- Display first_name start -->
+      <dd><%= user.first_name %></dd>
+      <!-- Display first_name end -->
+
+      <dt>Last name</dt>
+      <!-- Display last_name start -->
+      <dd><%= user.last_name %></dd>
+      <!-- Display last_name end -->
+
+      <dt>State</dt>
+      <!-- Display state start -->
+      <dd><%= user.state %></dd>
+      <!-- Display state end -->
+
+      <dt>City</dt>
+      <!-- Display city start -->
+      <dd><%= user.city %></dd>
+      <!-- Display city end -->
+
+      <dt>Neighborhood</dt>
+      <!-- Display neighborhood start -->
+      <dd><%= user.neighborhood %></dd>
+      <!-- Display neighborhood end -->
+
+      <dt>Email</dt>
+      <!-- Display email start -->
+      <dd><%= user.email %></dd>
+      <!-- Display email end -->
+
+      <dt>Password</dt>
+      <!-- Display password start -->
+      <dd><%= user.password %></dd>
+      <!-- Display password end -->
+
+      <dt>Level</dt>
+      <!-- Display level start -->
+      <dd><%= user.level %></dd>
+      <!-- Display level end -->
+
+      <dt>Gender</dt>
+      <!-- Display gender start -->
+      <dd><%= user.gender %></dd>
+      <!-- Display gender end -->
+
+      <dt>Age</dt>
+      <!-- Display age start -->
+      <dd><%= user.age %></dd>
+      <!-- Display age end -->
+
+      <dt>Profile picture</dt>
+      <!-- Display profile_picture start -->
+      <dd><%= user.profile_picture %></dd>
+      <!-- Display profile_picture end -->
+
+      <dt>Coach</dt>
+      <!-- Display coach start -->
+      <dd><%= user.coach %></dd>
+      <!-- Display coach end -->
+
+      <dt>Cost per hour</dt>
+      <!-- Display cost_per_hour start -->
+      <dd><%= user.cost_per_hour %></dd>
+      <!-- Display cost_per_hour end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back user, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link user start -->
+      <div class="col">
+        <%= link_to edit_user_url(user), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link user end -->
+
+      <!-- Delete link user start -->
+      <div class="col">
+        <%= link_to user, method: :delete, data: { confirm: "Do you really want to delete this user?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link user end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(user.updated_at) %> ago
+  </div>
+</div>
