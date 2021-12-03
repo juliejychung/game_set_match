@@ -10,6 +10,8 @@ class LessonResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :court
+
   belongs_to :player,
              resource: UserResource
 
