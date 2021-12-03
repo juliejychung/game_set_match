@@ -1,0 +1,135 @@
+<% was_validated = lesson.errors.any? %>
+
+<%= form_with(model: lesson, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for coach_id start -->
+  <div class="form-group">
+    <% coach_class = "form-control" %>
+    <% coach_was_invalid = lesson.errors.include?(:coach) %>
+
+    <% if was_validated %>
+      <% if coach_was_invalid %>
+        <% coach_class << " is-invalid" %>
+      <% else %>
+        <% coach_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :coach_id %>
+    <!-- Input for coach_id start -->
+    <%= f.number_field :coach_id, class: coach_class, placeholder: "Enter coach" %>
+    <!-- Input for coach_id end -->
+    <% if coach_was_invalid %>
+      <% lesson.errors.full_messages_for(:coach).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for coach_id end -->
+  <!-- Label and input for player_id start -->
+  <div class="form-group">
+    <% player_class = "form-control" %>
+    <% player_was_invalid = lesson.errors.include?(:player) %>
+
+    <% if was_validated %>
+      <% if player_was_invalid %>
+        <% player_class << " is-invalid" %>
+      <% else %>
+        <% player_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :player_id %>
+    <!-- Input for player_id start -->
+    <%= f.number_field :player_id, class: player_class, placeholder: "Enter player" %>
+    <!-- Input for player_id end -->
+    <% if player_was_invalid %>
+      <% lesson.errors.full_messages_for(:player).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for player_id end -->
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <% date_class = "form-control" %>
+    <% date_was_invalid = lesson.errors.include?(:date) %>
+
+    <% if was_validated %>
+      <% if date_was_invalid %>
+        <% date_class << " is-invalid" %>
+      <% else %>
+        <% date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :date %>
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
+    <!-- Input for date end -->
+    <% if date_was_invalid %>
+      <% lesson.errors.full_messages_for(:date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for date end -->
+  <!-- Label and input for time start -->
+  <div class="form-group">
+    <% time_class = "form-control" %>
+    <% time_was_invalid = lesson.errors.include?(:time) %>
+
+    <% if was_validated %>
+      <% if time_was_invalid %>
+        <% time_class << " is-invalid" %>
+      <% else %>
+        <% time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :time %>
+    <!-- Input for time start -->
+    <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
+    <!-- Input for time end -->
+    <% if time_was_invalid %>
+      <% lesson.errors.full_messages_for(:time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for time end -->
+  <!-- Label and input for court_id start -->
+  <div class="form-group">
+    <% court_class = "form-control" %>
+    <% court_was_invalid = lesson.errors.include?(:court) %>
+
+    <% if was_validated %>
+      <% if court_was_invalid %>
+        <% court_class << " is-invalid" %>
+      <% else %>
+        <% court_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :court_id %>
+    <!-- Input for court_id start -->
+    <%= f.number_field :court_id, class: court_class, placeholder: "Enter court" %>
+    <!-- Input for court_id end -->
+    <% if court_was_invalid %>
+      <% lesson.errors.full_messages_for(:court).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for court_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
