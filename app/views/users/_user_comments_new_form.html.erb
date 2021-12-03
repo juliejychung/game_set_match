@@ -22,7 +22,7 @@
     <%= f.label :match_id %>
 
     <!-- Input for match_id start -->
-    <%= f.text_field :match_id, class: "form-control" %>
+    <%= f.collection_select :match_id, Match.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for match_id end -->
   </div>
   <!-- Label and input for match_id end -->

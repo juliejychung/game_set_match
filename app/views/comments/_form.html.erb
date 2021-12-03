@@ -68,7 +68,7 @@
 
     <%= f.label :match_id %>
     <!-- Input for match_id start -->
-    <%= f.number_field :match_id, class: match_class, placeholder: "Enter match" %>
+    <%= f.collection_select :match_id, Match.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for match_id end -->
     <% if match_was_invalid %>
       <% comment.errors.full_messages_for(:match).each do |message| %>
