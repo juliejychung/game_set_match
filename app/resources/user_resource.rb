@@ -18,6 +18,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :games,
+             resource: MatchResource,
+             foreign_key: :opponent_id
+
   has_many   :matches,
              foreign_key: :player_id
 
