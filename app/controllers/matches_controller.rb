@@ -1,27 +1,22 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
 
-  # GET /matches
   def index
     @q = Match.ransack(params[:q])
     @matches = @q.result(distinct: true).includes(:player, :opponent,
                                                   :comments, :court).page(params[:page]).per(10)
   end
 
-  # GET /matches/1
   def show
     @comment = Comment.new
   end
 
-  # GET /matches/new
   def new
     @match = Match.new
   end
 
-  # GET /matches/1/edit
   def edit; end
 
-  # POST /matches
   def create
     @match = Match.new(match_params)
 
@@ -37,7 +32,6 @@ class MatchesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /matches/1
   def update
     if @match.update(match_params)
       redirect_to @match, notice: "Match was successfully updated."
@@ -46,7 +40,6 @@ class MatchesController < ApplicationController
     end
   end
 
-  # DELETE /matches/1
   def destroy
     @match.destroy
     message = "Match was successfully deleted."
@@ -59,12 +52,10 @@ class MatchesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_match
     @match = Match.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def match_params
     params.require(:match).permit(:player_id, :opponent_id, :date, :time,
                                   :court_id)
