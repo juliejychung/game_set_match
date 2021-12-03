@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sessions,
+             :class_name => "Lesson",
+             :foreign_key => "player_id",
+             :dependent => :destroy
+
   has_many   :lessons,
              :foreign_key => "coach_id",
              :dependent => :destroy
