@@ -8,6 +8,8 @@ class CourtsController < ApplicationController
 
   # GET /courts/1
   def show
+    @lesson = Lesson.new
+    @match = Match.new
   end
 
   # GET /courts/new

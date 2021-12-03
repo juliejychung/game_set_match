@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @lesson = Lesson.new
+    @comment = Comment.new
+    @match = Match.new
   end
 
   # GET /users/new
